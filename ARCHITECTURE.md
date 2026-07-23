@@ -322,13 +322,15 @@ The GitHub Actions deployment workflow installs dependencies, sets the content e
 
 The usual integration steps are:
 
-1. Create a svelte package under `packages/`.
-2. Implement the feature composition root under `src/lib/components/app.svelte` when the feature is a single page application.
-3. Export the public component from `src/lib/index.ts`.
-4. Add `src/routes/+page.svelte` as the standalone test host.
-5. Add the package to `hub/package.json` as a `workspace:*` dependency.
-6. Add a thin route under `hub/src/routes` that imports the package's public export.
-7. Put operational configuration under `static/config` using the final hub-relative structure.
-8. Add the package to `hub/scripts/sync-configs.ts` if it owns static configuration.
-9. Add any required `dsh-content` route/assets and a consumer-specific generator or loader.
-10. Verify the standalone package, integrated hub, content generation, static config URLs, and production build.
+1. Create a svelte package under `packages/` using `npx sv create <app-name>`
+1. Implement the feature composition root under `src/lib/components/app.svelte` when the feature is a single page application.
+1. Export the public component from `src/lib/index.ts`.
+1. Add `src/routes/+page.svelte` as the standalone test host.
+1. Add the package to `hub/package.json` as a `workspace:*` dependency.
+1. Add a thin route under `hub/src/routes` that imports the package's public export.
+1. Put operational configuration under `static/config` using the final hub-relative structure.
+1. Add the package to `hub/scripts/sync-configs.ts` if it owns static configuration.
+1. Add any required `dsh-content` route/assets and a consumer-specific generator or loader.
+1. Verify the standalone package, integrated hub, content generation, static config URLs, and production build.
+
+**SUGGESTION:** A faster way to create a new svelte package is to create a copy of `common` and rename the new copy.
